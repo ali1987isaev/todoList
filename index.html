@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>TodoList</title>
+</head>
+
+<body>
+  <div class="menuWrapper" data-menu>
+    <div class="menuBarContainer">
+      <div class="selectItems__title">Select theme:</div>
+      <div class="selectItems" data-selectItems>
+        <div class="selectItem" data-dark>dark</div>
+        <div class="selectItem" data-lite>lite</div>
+        <div class="selectItem" data-purple>purple</div>
+        <div class="selectItem" data-tomato>tomato</div>
+      </div>
+      <button class="selectThemeBtn closed" data-close></button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="todoTitle">
+      <h1>Awesome <span>TODO</span>&#8259;list</h1>
+    </div>
+    <div class="formContainer">
+      <form id="form" class="todoForm" name="todoForm">
+        <input class="todoInput todoName" type="text" name="todoName" placeholder="New task name ...">
+        <input class="todoInput todoText" type="text" name="todoText" placeholder="Stuff I need to do ...">
+        <button class="btn addTask">Add</button>
+      </form>
+    </div>
+
+    <div class="todoListItemsContainer">
+      <div class="stuffINeedToDo">
+        <h2 class="taskContainerTitle">My daily tasks:</h2>
+        <ul class="tasksContainer" data-list></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="errorPopup" data-errorPopup>
+    <div class="popup" data-popup>
+      <header class="popupHeader">
+        <h2 class="popupTitle">Warning</h2>
+      </header>
+      <p class="popupText">Please enter all fields</p>
+      <button class="popupBtn" data-popup-btn>OK I understood</button>
+      <button class="popupCloseSymbol" data-popup-symbol>&#10005;</button>
+    </div>
+  </div>
+
+
+
+
+
+  <script src="./js/state.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+
+</html>
