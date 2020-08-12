@@ -240,7 +240,7 @@ body {
   position: relative;
   margin-top: 200px;
   height: 150px;
-  width: 600px;
+  min-width: 50%;
   background-color: #fff;
   display: flex;
   flex-direction: column;
