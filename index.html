@@ -32,7 +32,8 @@
       <form id="form" class="todoForm" name="todoForm">
         <input class="todoInput todoName" type="text" name="todoName" placeholder="New task name ...">
         <input class="todoInput todoText" type="text" name="todoText" placeholder="Stuff I need to do ...">
-        <button class="btn addTask">Add</button>
+        <button class="btn addTask" data-add-task>Add</button>
+        <small class="addTask_text">Register to activate Todo-List</small>
       </form>
     </div>
 
@@ -52,6 +53,41 @@
       <p class="popupText">Please enter all fields</p>
       <button class="popupBtn" data-popup-btn>Ok</button>
       <button class="popupCloseSymbol" data-popup-symbol>&#10005;</button>
+    </div>
+  </div>
+
+  <div class="registrationForm-bg">
+    <div class="registrationForm-container">
+      <div class="registrationForm_header">
+        <h3>Sing Up</h3>
+        <button class="registrationForm_close" data-registration-form-close">
+          <i>&#215;</i>
+        </button>
+      </div>
+      <form data-registration-form class="registrationForm">
+        <h2>Register With Us</h2>
+        <div class="formFields">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Enter username" data-userName>
+          <small>Error message</small>
+        </div>
+        <div class="formFields">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter email" data-userEmail>
+          <small>Error message</small>
+        </div>
+        <div class="formFields">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter password" data-userPassword>
+          <small>Error message</small>
+        </div>
+        <div class="formFields">
+          <label for="password2">Confirm password</label>
+          <input type="password" id="password2" placeholder="Confirm password" data-userPasswordConfirm>
+          <small>Error message</small>
+        </div>
+        <button class="submitRegistration" type="submit" data-registration-form-submit>Submit</button>
+      </form>
     </div>
   </div>
 
