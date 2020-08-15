@@ -88,19 +88,19 @@ body {
 .addTask {
   align-self: flex-end;
 }
-.addTask.disabled{
+.addTask.disabled {
   opacity: 0.2;
 }
-.addTask_text{
+.addTask_text {
   visibility: hidden;
 }
-.addTask_text.disabled{
+.addTask_text.disabled {
   visibility: visible;
   position: absolute;
   right: -2px;
   bottom: -19px;
   color: var(--error);
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 .btn {
   cursor: pointer;
@@ -355,14 +355,15 @@ body {
   transform: scale(0.98);
 }
 .registrationForm {
+  max-width: 100%;
   padding: 0 10px 20px 10px;
-  max-width:89%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  color: #000;
 }
-.registrationForm h2{
+.registrationForm h2 {
   text-align: center;
 }
 .formFields {
@@ -377,10 +378,10 @@ body {
   font-size: 18px;
 }
 .formFields input {
-  display: block;
-  width: 100%;
+  max-width: 400px;
+  width: 94%;
   outline: 0;
-  border: 1px solid #aaa;
+  border: 1px solid rgb(206, 205, 205);
   border-radius: 4px;
   padding: 5px 10px;
 }
@@ -389,7 +390,7 @@ body {
 }
 .formFields input:focus {
   border-color: #777;
-  border: 1px solid #f4f4f4;
+  border: 1px solid #9e9d9d;
   border-radius: 4px;
 }
 .formFields small {
@@ -409,15 +410,15 @@ body {
   transform: scale(0.98);
 }
 
-.formFields.error input{
-  border-color: var(--error)
+.formFields.error input {
+  border-color: var(--error);
 }
-.formFields.error  small{
+.formFields.error small {
   visibility: visible;
-  color: var(--error)
+  color: var(--error);
 }
 
-.formFields.success input{
-  border-color: var(--success)
+.formFields.success input {
+  border-color: var(--success);
 }
 /* Registration form styles, end */
