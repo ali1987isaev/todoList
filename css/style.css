@@ -240,7 +240,8 @@ body {
 /* task items style, end */
 
 /* Error popup styles, start */
-.warningPopup_styles{}
+.warningPopup_styles {
+}
 .errorPopup {
   visibility: hidden;
   position: absolute;
@@ -423,3 +424,66 @@ body {
   border-color: var(--success);
 }
 /* Registration form styles, end */
+@media (max-width: 410px) {
+  .menuBarContainer {
+    margin-top: 0px;
+  }
+  .selectThemeBtn {
+    top: 28px;
+    background-position: 85%;
+    height: 29px;
+  }
+  .todoTitle::after {
+    height: 50px;
+    width: 50px;
+    right: 0rem;
+    top: -1.3rem;
+  }
+}
+@media (max-width: 410px) {
+  .todoTitle::after {
+    width: 55px;
+    height: 55px;
+  }
+  .todoTitle h1 {
+    font-size: 1.8rem;
+  }
+  .addTask {
+    padding: 0 50px;
+  }
+  .addTask_text.disabled {
+    font-size: 0.8rem;
+  }
+  .selectThemeBtn {
+  }
+}
+@media (max-width: 370px) {
+  .todoTitle::after {
+    width: 50px;
+    height: 50px;
+  }
+  .todoTitle h1 {
+    font-size: 1.5rem;
+  }
+  .addTask {
+    padding: 0 40px;
+  }
+  .addTask_text.disabled {
+    font-size: 0.7rem;
+  }
+}
+@media (max-width: 315px) {
+  .todoTitle::after {
+    width: 50px;
+    height: 50px;
+  }
+  .todoTitle h1 {
+    font-size: 1.5rem;
+  }
+  .addTask {
+    padding: 0 40px;
+  }
+  .addTask_text.disabled {
+    font-size: 0.7rem;
+  }
+}
