@@ -8,6 +8,7 @@
   --deleteBtn: rgb(228, 69, 29);
   --error: rgb(248, 45, 9);
   --success: rgb(9, 248, 89);
+  --popupColor: rgb(65, 64, 64);
 }
 
 html {
@@ -222,8 +223,6 @@ body {
   margin: 0;
   padding: 0;
 }
-.taskText {
-}
 .taskDeleteBtn {
   align-self: flex-end;
   font-size: 1rem;
@@ -241,6 +240,7 @@ body {
 /* task items style, end */
 
 /* Error popup styles, start */
+.warningPopup_styles{}
 .errorPopup {
   visibility: hidden;
   position: absolute;
@@ -265,10 +265,11 @@ body {
 }
 .popupHeader {
   height: 30%;
-  background-color: rgb(245, 159, 46);
+  background-color: var(--popupColor);
   width: 100%;
   text-align: center;
   padding-bottom: 10px;
+  color: #ffffff;
 }
 .popupTitle {
   text-transform: uppercase;
@@ -326,7 +327,7 @@ body {
   margin: 15vh 10px;
 }
 .registrationForm_header {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: var(--popupColor);
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
   height: 10vh;
@@ -400,7 +401,7 @@ body {
   width: 100%;
   font-size: 20px;
   padding: 10px 10px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: var(--popupColor);
   border: 0;
   border-radius: 4px;
   color: #ffffff;
