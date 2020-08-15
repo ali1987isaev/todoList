@@ -72,7 +72,7 @@ function renderAllLocalStorageTasks() {
 function createTaskHandler(e) {
   e.preventDefault();
   if (form.todoName.value === "" || form.todoText.value === "") {
-    error()
+    error();
   } else if (form.todoName.value && form.todoText.value !== "") {
     const taskObj = {
       _id: Date.now().toString(),
@@ -112,43 +112,57 @@ function deleteTaskFromDOM(e) {
 }
 
 function error() {
-  if(!document.querySelector('[data-add-task]').classList.contains('disabled')) {
-    const closePopup= ()=> popup.style.visibility = 'hidden';
+  if (
+    !document.querySelector("[data-add-task]").classList.contains("disabled")
+  ) {
+    const closePopup = () => (popup.style.visibility = "hidden");
     const popup = document.querySelector("[data-errorPopup]");
-    popup.style.visibility = 'visible';
+    popup.style.visibility = "visible";
 
-    document.querySelector("[data-popup-btn]").addEventListener('click', closePopup)
-    document.querySelector("[data-popup-symbol]").addEventListener('click', closePopup)
+    document
+      .querySelector("[data-popup-btn]")
+      .addEventListener("click", closePopup);
+    document
+      .querySelector("[data-popup-symbol]")
+      .addEventListener("click", closePopup);
   }
 }
 
 // Registration is activated. Adding classes:
-document.querySelector('[data-add-task]').classList.add('disabled');
-document.querySelector('.addTask_text').classList.add('disabled');
+document.querySelector("[data-add-task]").classList.add("disabled");
+document.querySelector(".addTask_text").classList.add("disabled");
 
 // Register form events and functions:
-(function (){
-  const registrationPopup = document.querySelector('.registrationForm-bg');
-    // Todo-List activation function and events:
-    function removeDisabled() {
-      document.querySelector('.addTask_text').classList.remove('disabled');
-      document.querySelector('[data-add-task]').classList.remove('disabled');
-      document.querySelector('[data-add-task]').classList.add('active');
-      registrationPopup.style.visibility = 'hidden';
-    }
-    // Registration form activation. Events:
-    document.querySelector('[data-add-task]').addEventListener('click', ()=> {
-      document.querySelector('[data-add-task]').classList.contains('disabled')
-       ? registrationPopup.style.visibility = 'visible' : null;
-    })
-  
+(function () {
+  const registrationPopup = document.querySelector(".registrationForm-bg");
+  // Todo-List activation function and events:
+  function removeDisabled() {
+    document.querySelector(".addTask_text").classList.remove("disabled");
+    document.querySelector("[data-add-task]").classList.remove("disabled");
+    document.querySelector("[data-add-task]").classList.add("active");
+    registrationPopup.style.visibility = "hidden";
+  }
+  // Registration form activation. Events:
+  document.querySelector("[data-add-task]").addEventListener("click", () => {
+    document.querySelector("[data-add-task]").classList.contains("disabled")
+      ? (registrationPopup.style.visibility = "visible") + closeForm()
+      : null;
+    const smalll = document.querySelectorAll("small");
+  });
+
   ///////////////////////////////////////////////
   // check length input:
   function checkLength(input, min, max) {
     if (input.value.length < min) {
-      showError(input, `${firstLetter(input)} must not be less than ${min} characters`);
+      showError(
+        input,
+        `${firstLetter(input)} must not be less than ${min} characters`
+      );
     } else if (input.value.length > max) {
-      showError(input, `${firstLetter(input)} must be no more than ${max} characters`);
+      showError(
+        input,
+        `${firstLetter(input)} must be no more than ${max} characters`
+      );
     } else {
       showSuccess(input);
     }
@@ -190,23 +204,38 @@ document.querySelector('.addTask_text').classList.add('disabled');
     }
   }
 
+  // Close form validation:
+  function closeForm() {
+    closeFormValidation.addEventListener("click", (e) => {
+      registrationPopup.style.visibility = "hidden";
+      document.querySelectorAll(".formFields").forEach((field) => {
+        field.classList.contains("error")
+          ? field.classList.remove("error")
+          : null;
+      });
+    });
+  }
+
   // UI elements:
-  const formSubmit = document.querySelector('[data-registration-form]'),
+  const formSubmit = document.querySelector("[data-registration-form]"),
     username = document.querySelector("[data-userName]"),
     email = document.querySelector("[data-userEmail]"),
     password = document.querySelector("[data-userPassword]"),
     passwordConfirm = document.querySelector("[data-userPasswordConfirm]"),
-    formFields = document.querySelectorAll('.formFields');
+    formFields = document.querySelectorAll(".formFields"),
+    closeFormValidation = document.querySelector(
+      "[data-registration-form-close]"
+    );
 
   // Checking registration form and activation Todo-List:
-  function todoListActivated(e){  
-      formFields[0].classList.contains('success') 
-      && formFields[1].classList.contains('success') 
-      && formFields[2].classList.contains('success') 
-      && formFields[3].classList.contains('success')
-      && document.querySelector('[data-add-task]').classList.contains('disabled')
-        ? removeDisabled()
-        : console.error('Form validation error');
+  function todoListActivated(e) {
+    formFields[0].classList.contains("success") &&
+    formFields[1].classList.contains("success") &&
+    formFields[2].classList.contains("success") &&
+    formFields[3].classList.contains("success") &&
+    document.querySelector("[data-add-task]").classList.contains("disabled")
+      ? removeDisabled()
+      : console.error("Form validation error. Please enter all fields");
   }
 
   // Form events:
@@ -220,5 +249,4 @@ document.querySelector('.addTask_text').classList.add('disabled');
     validateEmail(email);
     todoListActivated(e);
   });
-})()
-
+})();
