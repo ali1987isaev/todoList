@@ -6,6 +6,8 @@
   --arrowLeft: url(../images/arrowLeft_whiteColor.svg);
   --arrowRight: url(../images/arrowRight_whiteColor.svg);
   --deleteBtn: rgb(228, 69, 29);
+  --error: rgb(248, 45, 9);
+  --success: rgb(9, 248, 89);
 }
 
 html {
@@ -55,6 +57,7 @@ body {
   color: var(--secondaryTextColor);
 }
 .todoForm {
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -84,6 +87,20 @@ body {
 }
 .addTask {
   align-self: flex-end;
+}
+.addTask.disabled{
+  opacity: 0.2;
+}
+.addTask_text{
+  visibility: hidden;
+}
+.addTask_text.disabled{
+  visibility: visible;
+  position: absolute;
+  right: -2px;
+  bottom: -19px;
+  color: var(--error);
+  font-size: .9rem;
 }
 .btn {
   cursor: pointer;
@@ -286,3 +303,121 @@ body {
   background-color: rgb(206, 42, 13);
 }
 /* Error popup styles, end */
+
+/* Registration form styles, start: */
+.registrationForm-bg {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+}
+.registrationForm-container {
+  max-width: 400px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 7px;
+  position: relative;
+  height: max-content;
+  margin: 15vh 10px;
+}
+.registrationForm_header {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  height: 10vh;
+  padding: 0 10px;
+}
+.registrationForm_header h3 {
+  margin: 0;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  color: #fff;
+  border-bottom: 1px solid rgb(116, 116, 116);
+}
+.registrationForm_close {
+  background: transparent;
+  border: 0;
+  font-size: 30px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #fff;
+  outline: 0;
+  cursor: pointer;
+  font-size: 2rem;
+}
+.registrationForm_close:active {
+  transform: scale(0.98);
+}
+.registrationForm {
+  padding: 0 10px 20px 10px;
+  max-width:89%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.registrationForm h2{
+  text-align: center;
+}
+.formFields {
+  padding: 10px 0;
+  width: 100%;
+}
+.formFields h2 {
+  text-align: center;
+  margin-top: 0px;
+}
+.formFields label {
+  font-size: 18px;
+}
+.formFields input {
+  display: block;
+  width: 100%;
+  outline: 0;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+.formFields input::placeholder {
+  font-size: 16px;
+}
+.formFields input:focus {
+  border-color: #777;
+  border: 1px solid #f4f4f4;
+  border-radius: 4px;
+}
+.formFields small {
+  visibility: hidden;
+}
+.submitRegistration {
+  width: 100%;
+  font-size: 20px;
+  padding: 10px 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 0;
+  border-radius: 4px;
+  color: #ffffff;
+  outline: 0;
+}
+.submitRegistration:active {
+  transform: scale(0.98);
+}
+
+.formFields.error input{
+  border-color: var(--error)
+}
+.formFields.error  small{
+  visibility: visible;
+  color: var(--error)
+}
+
+.formFields.success input{
+  border-color: var(--success)
+}
+/* Registration form styles, end */
